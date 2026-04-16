@@ -17,7 +17,7 @@ An AI-powered tool that scores your resume against a job description, identifies
 |-------|------|
 | Frontend | React 18 + Vite + Tailwind CSS |
 | Backend | Node.js + Express |
-| AI | Anthropic Claude API |
+| AI | Gemini API |
 | File Parsing | pdf-parse (PDF), mammoth (DOCX) |
 
 ## Project Structure
@@ -36,7 +36,7 @@ ats-scorer/
 │   ├── vite.config.js
 │   └── tailwind.config.js
 ├── server/
-│   ├── index.js            # Express API + Claude integration
+│   ├── index.js           
 │   ├── .env.example
 │   └── package.json
 └── package.json            # Root scripts
@@ -47,7 +47,6 @@ ats-scorer/
 ### 1. Prerequisites
 
 - Node.js 18+
-- An Anthropic API key → https://console.anthropic.com
 
 ### 2. Install dependencies
 
@@ -65,7 +64,6 @@ cp .env.example .env
 
 Edit `server/.env`:
 ```
-ANTHROPIC_API_KEY=sk-ant-...
 PORT=5000
 ```
 
@@ -112,29 +110,6 @@ Open http://localhost:5173
   }
 }
 ```
-
-## Deployment
-
-### Frontend → Vercel
-```bash
-cd client
-npm run build
-# Deploy /dist folder to Vercel
-```
-
-### Backend → Render / Railway
-1. Push repo to GitHub
-2. Connect to Render → New Web Service
-3. Set `ANTHROPIC_API_KEY` in environment variables
-4. Build command: `cd server && npm install`
-5. Start command: `cd server && node index.js`
-
-Update `client/vite.config.js` proxy target to your deployed backend URL for production.
-
-## Ideas to Extend
-
-- [ ] Side-by-side diff view for bullet rewrites
-- [ ] Save analysis history (localStorage or MongoDB)
 - [ ] Cover letter generator
 - [ ] Multiple JD comparison
 - [ ] Chrome extension to auto-grab JD from job boards
