@@ -17,7 +17,7 @@ An AI-powered tool that scores your resume against a job description, identifies
 |-------|------|
 | Frontend | React 18 + Vite + Tailwind CSS |
 | Backend | Node.js + Express |
-| AI | Anthropic Claude API |
+| AI | Gemini API |
 | File Parsing | pdf-parse (PDF), mammoth (DOCX) |
 
 ## Project Structure
