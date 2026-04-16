@@ -7,7 +7,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const pdfParse = require("pdf-parse");
 const mammoth = require("mammoth"); // For DOCX parsing
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 app.use(cors({
   origin: "*"
@@ -119,6 +119,6 @@ app.post("/api/analyze", upload.single("resume"), async (req, res) => {
 
 app.get("/api/health", (_, res) => res.json({ status: "ok" }));
 
-app.listen(PORT, () =>
-  console.log(`✅ ATS Scorer server running on http://localhost:${PORT}`),
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`✅ ATS Scorer server running on http://localhost:${PORT}`)
 );
